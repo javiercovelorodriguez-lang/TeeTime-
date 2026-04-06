@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reservar Campos — TeeTime</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Outfit:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  body.inner-page .booking-section { padding-top: 120px; min-height: 100vh; }
+  .booking-widget-wrapper { max-width: 1000px; margin: 3rem auto 0; }
+  /* Custom scrollbar for options to preserve layout */
+  #camposList { max-height: 520px; overflow-y: auto; padding-right: 10px; }
+  #camposList::-webkit-scrollbar { width: 5px; }
+  #camposList::-webkit-scrollbar-track { background: rgba(0,0,0,0.1); border-radius: 5px; }
+</style>
+</head>
+<body class="inner-page">
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">Tee<span>Time</span></a>
+  <ul class="nav-links">
+    <li><a href="servicios.html">Servicios</a></li>
+    <li><a href="profesionales.html">Profesionales</a></li>
+    <li><a href="reservas.html">Reservar Clases</a></li>
+    <li><a href="campos.html">Campos</a></li>
+    <li><a href="estadisticas.html">Estadísticas</a></li>
+    <li><a href="contenido.html">Contenido</a></li>
+  </ul>
+  <a href="reservas.html" class="nav-cta">Reservar clase</a>
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" onclick="toggleMenu()">✕</button>
+  <a href="servicios.html">Servicios</a>
+  <a href="profesionales.html">Profesionales</a>
+  <a href="reservas.html">Reservar Clases</a>
+  <a href="campos.html">Campos</a>
+  <a href="estadisticas.html">Estadísticas</a>
+  <a href="contenido.html">Contenido</a>
+</div>
+
+<!-- BOOKING CAMPOS -->
+<section class="booking-section">
+  <div class="container">
+    <div class="reveal" style="text-align:center;">
+      <div class="section-tag" style="color:var(--gold-light);">Green Fees</div>
+      <h2 class="section-title" style="color:white;">Reserva tu Campo de Golf</h2>
+      <p class="section-desc" style="color:rgba(255,255,255,0.65); margin: 0 auto;">Selecciona el campo donde deseas jugar, fecha, hora de salida y número de jugadores.</p>
+      <div style="margin-top:2rem;">
+         <a href="reservas.html" style="color:var(--gold-light); font-size:.9rem; text-decoration:none; border-bottom:1px solid var(--gold-light);">¿Prefieres reservar una clase con un profesor? →</a>
+      </div>
+    </div>
+    
+    <div class="booking-widget-wrapper">
+      <div class="booking-widget reveal" id="widget-campos">
+        <div class="booking-left">
+          <div style="margin-bottom: 1rem;">
+            <h3 style="margin-bottom:.5rem;">Filtro de Provincia</h3>
+            <select id="filtroComunidad" onchange="filterCampos()" style="width:100%; padding: .6rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.3); background: rgba(0,0,0,0.2); color: white; outline: none; font-family: 'Outfit', sans-serif; font-size: .85rem;">
+              <option value="todas" style="color: black;">Todas las Provincias</option>
+              <option value="alava" style="color: black;">Álava</option>
+              <option value="albacete" style="color: black;">Albacete</option>
+              <option value="alicante" style="color: black;">Alicante</option>
+              <option value="almeria" style="color: black;">Almería</option>
+              <option value="asturias" style="color: black;">Asturias</option>
+              <option value="avila" style="color: black;">Ávila</option>
+              <option value="badajoz" style="color: black;">Badajoz</option>
+              <option value="barcelona" style="color: black;">Barcelona</option>
+              <option value="burgos" style="color: black;">Burgos</option>
+              <option value="caceres" style="color: black;">Cáceres</option>
+              <option value="cadiz" style="color: black;">Cádiz</option>
+              <option value="cantabria" style="color: black;">Cantabria</option>
+              <option value="castellon" style="color: black;">Castellón</option>
+              <option value="ciudad-real" style="color: black;">Ciudad Real</option>
+              <option value="cordoba" style="color: black;">Córdoba</option>
+              <option value="cuenca" style="color: black;">Cuenca</option>
+              <option value="girona" style="color: black;">Girona</option>
+              <option value="granada" style="color: black;">Granada</option>
+              <option value="guadalajara" style="color: black;">Guadalajara</option>
+              <option value="gipuzkoa" style="color: black;">Gipuzkoa</option>
+              <option value="huelva" style="color: black;">Huelva</option>
+              <option value="huesca" style="color: black;">Huesca</option>
+              <option value="illes-balears" style="color: black;">Illes Balears</option>
+              <option value="jaen" style="color: black;">Jaén</option>
+              <option value="a-coruna" style="color: black;">A Coruña</option>
+              <option value="la-rioja" style="color: black;">La Rioja</option>
+              <option value="las-palmas" style="color: black;">Las Palmas</option>
+              <option value="leon" style="color: black;">León</option>
+              <option value="lleida" style="color: black;">Lleida</option>
+              <option value="lugo" style="color: black;">Lugo</option>
+              <option value="madrid" style="color: black;">Madrid</option>
+              <option value="malaga" style="color: black;">Málaga</option>
+              <option value="murcia" style="color: black;">Murcia</option>
+              <option value="navarra" style="color: black;">Navarra</option>
+              <option value="ourense" style="color: black;">Ourense</option>
+              <option value="palencia" style="color: black;">Palencia</option>
+              <option value="pontevedra" style="color: black;">Pontevedra</option>
+              <option value="salamanca" style="color: black;">Salamanca</option>
+              <option value="segovia" style="color: black;">Segovia</option>
+              <option value="sevilla" style="color: black;">Sevilla</option>
+              <option value="soria" style="color: black;">Soria</option>
+              <option value="tarragona" style="color: black;">Tarragona</option>
+              <option value="santa-cruz-de-tenerife" style="color: black;">Santa Cruz de Tenerife</option>
+              <option value="teruel" style="color: black;">Teruel</option>
+              <option value="toledo" style="color: black;">Toledo</option>
+              <option value="valencia" style="color: black;">Valencia</option>
+              <option value="valladolid" style="color: black;">Valladolid</option>
+              <option value="bizkaia" style="color: black;">Bizkaia</option>
+              <option value="zamora" style="color: black;">Zamora</option>
+              <option value="zaragoza" style="color: black;">Zaragoza</option>
+            </select>
+          </div>
+          <p>Encuentra los campos más emblemáticos en cada rincón del país.</p>
+          <div class="booking-options" id="camposList">
+            <!-- 50 Spanish Provinces Real Mocks -->
+            <div class="booking-opt selected" data-comunidad="alava" onclick="selectOpt(this)">
+              <div class="booking-opt-icon">⛳</div><div><div class="booking-opt-name">Izki Golf</div><div class="booking-opt-price">Álava · Desde 65 €</div></div></div>
+            <div class="booking-opt" data-comunidad="albacete" onclick="selectOpt(this)">
+              <div class="booking-opt-icon">⛳</div><div><div class="booking-opt-name">Club de Golf Las Pinaillas</div><div class="booking-opt-price">Albacete · Desde 50 €</div></div></div>
+            <div class="booking-opt" data-comunidad="alicante" onclick="selectOpt(this)">
+              <div class="booking-opt-icon">🏌️</div><div><div class="booking-opt-name">La Finca Golf Resort</div><div class="booking-opt-price">Alicante · Desde 75 €</div></div></div>
+            <div class="booking-opt" data-comunidad="almeria" onclick="selectOpt(this)">
+              <div class="booking-opt-icon">🌵</div><div><div class="booking-opt-name">Desert Springs Resort</div><div class="booking-opt-price">Almería · Desde 85 €</div></div></div>
+            <div class="booking-opt" data-comunidad="asturias" onclick="selectOpt(this)">
+              <div class="booking-opt-icon">🌲</div><div><div class="booking-opt-name">R.C.G. de Castiello</div><div class="booking-opt-price">Asturias · Desde 70 €</div></div></div>
+            <div class="booking-opt" data-comunidad="avila" onclick="selectOpt(this)">
+              <div class="booking-opt-icon">⛳</div><div><div class="booking-opt-name">Naturávila Golf</div><div class="booking-opt-price">Ávila · Desde 45 €</div></div></div>
+            <div class="booking-opt" data-comunidad="badajoz" onclick="selectOpt(this)">
+              <div class="booking-opt-icon">⛳</div><div><div class="booking-opt-name">Golf Guadiana</div><div class="booking-opt-price">Badajoz · Desde 40 €</div></div></div>
+            <div class="booking-opt" data-comunidad="barcelona" onclick="selectOpt(this)">
+              <div class="booking-opt-icon">⛲</div><div><div class="booking-opt-name">R.C.G. El Prat</div><div class="booking-opt-price">Barcelona · Desde 140 €</div></div></div>
+            <div class="booking-opt" data-comunidad="burgos" onclick="selectOpt(this)">
+              <div class="booking-opt-icon">⛳</div><div><div class="booking-opt-name">Saldaña Golf</div><div class="booking-opt-price">Burgos · Desde 45 €</div></div></div>
+            <div class="booking-opt" data-comunidad="caceres" onclick="selectOpt(this)">
+              <div class="booking-opt-icon">⛳</div><div><div class="booking-opt-name">Talayuela Golf</div><div class="booking-opt-price">Cáceres · Desde 42 €</div></div></div>
+            <div class="booking-opt" data-comunidad="cadiz" onclick="selectOpt(this)">
+              <div class="booking-opt-icon">👑</div><div><div class="booking-opt-name">Real Club Valderrama</div><div class="booking-opt-price">Cádiz · Desde 350 €</div></div></div>
+            <div class="booking-opt" data-comunidad="cantabria" onclick="selectOpt(this)">
+              <div class="booking-opt-icon">⛳</div><div><div class="booking-opt-name">Golf Santa Marina</div><div class="booking-opt-price">Cantabria · Desde 65 €</div></div></div>
+            <div class="booking-opt" data-comunidad="castellon" onclick="selectOpt(this)">
+              <div class="booking-opt-icon">⛳</div><div><div class="booking-opt-name">Club de Campo del Mediterráneo</div><div class="booking-opt-price">Castellón · Desde 60 €</div></div></div>
+            <div class="booking-opt" data-comunidad="ciudad-real" onclick="selectOpt(this)">
+              <div class="booking-opt-icon">⛳</div><div><div class="booking-opt-name">Golf Ciudad Real</div><div class="booking-opt-price">Ciudad Real · Desde 35 €</div></div></div>
+            <div class="booking-opt" data-comunidad="cordoba" onclick="selectOpt(this)">
+              <div class="booking-opt-icon">⛳</div><div><div class="booking-opt-name">R.C. de Campo de Córdoba</div><div class="booking-opt-price">Córdoba · Desde 50 €</div></div></div>
+            <div class="booking-opt" data-comunidad="cuenca" onclick="selectOpt(this)">
+              <div class="booking-opt-icon">⛳</div><div><div class="booking-opt-name">La Vereda Golf</div><div class="booking-opt-price">Cuenca · Desde 30 €</div></div></div>
+            <div class="booking-opt" data-comunidad="girona" onclick="selectOpt(this)">
+              <div class="booking-opt-icon">🌲</div><div><div class="booking-opt-name">PGA Catalunya Resort</div><div class="booking-opt-price">Girona · Desde 145 €</div></div></div>
+            <div class="booking-opt" data-comunidad="granada" onclick="selectOpt(this)">
+              <div class="booking-opt-icon">⛳</div><div><div class="booking-opt-name">Granada Club de Golf</div><div class="booking-opt-price">Granada · Desde 55 €</div></div></div>
+            <div class="booking-opt" data-comunidad="guadalajara" onclick="selectOpt(this)">
+              <div class="booking-opt-icon">⛳</div><div><div class="booking-opt-name">Golf Valdeluz</div><div class="booking-opt-price">Guadalajara · Desde 50 €</div></div></div>
+            <div class="booking-opt" data-comunidad="gipuzkoa" onclick="selectOpt(this)">
+              <div class="booking-opt-icon">⛳</div><div><div class="booking-opt-name">R.N.C.G. San Sebastián Basozabal</div><div class="booking-opt-price">Gipuzkoa · Desde 85 €</div></div></div>
+            <div class="booking-opt" data-comunidad="huelva" onclick="selectOpt(this)">
+              <div class="booking-opt-icon">⛳</div><div><div class="booking-opt-name">Islantilla Golf Resort</div><div class="booking-opt-price">Huelva · Desde 60 €</div></div></div>
+            <div class="booking-opt" data-comunidad="huesca" onclick="selectOpt(this)">
+              <div class="booking-opt-icon">🏔️</div><div><div class="booking-opt-name">Margas Golf</div><div class="booking-opt-price">Huesca · Desde 55 €</div></div></div>
+            <div class="booking-opt" data-comunidad="illes-balears" onclick="selectOpt(this)">
+              <div class="booking-opt-icon">🏖️</div><div><div class="booking-opt-name">Son Vida Golf</div><div class="booking-opt-price">Illes Balears · Desde 110 €</div></div></div>
+            <div class="booking-opt" data-comunidad="jaen" onclick="selectOpt(this)">
+              <div class="booking-opt-icon">⛳</div><div><div class="booking-opt-name">La Garza Golf</div><div class="booking-opt-price">Jaén · Desde 30 €</div></div></div>
+            <div class="booking-opt" data-comunidad="a-coruna" onclick="selectOpt(this)">
+              <div class="booking-opt-icon">⛳</div><div><div class="booking-opt-name">R.C.G. de La Coruña</div><div class="booking-opt-price">A Coruña · Desde 70 €</div></div></div>
+            <div class="booking-opt" data-comunidad="la-rioja" onclick="selectOpt(this)">
+              <div class="booking-opt-icon">🍷</div><div><div class="booking-opt-name">El Campo de Logroño</div><div class="booking-opt-price">La Rioja · Desde 45 €</div></div></div>
+            <div class="booking-opt" data-comunidad="las-palmas" onclick="selectOpt(this)">
+              <div class="booking-opt-icon">🌴</div><div><div class="booking-opt-name">R.C.G. de Las Palmas</div><div class="booking-opt-price">Las Palmas · Desde 90 €</div></div></div>
+            <div class="booking-opt" data-comunidad="leon" onclick="selectOpt(this)">
+              <div class="booking-opt-icon">⛳</div><div><div class="booking-opt-name">León Club de Golf</div><div class="booking-opt-price">León · Desde 40 €</div></div></div>
+            <div class="booking-opt" data-comunidad="lleida" onclick="selectOpt(this)">
+              <div class="booking-opt-icon">⛳</div><div><div class="booking-opt-name">Raimat Golf Club</div><div class="booking-opt-price">Lleida · Desde 45 €</div></div></div>
+            <div class="booking-opt" data-comunidad="lugo" onclick="selectOpt(this)">
+              <div class="booking-opt-icon">⛳</div><div><div class="booking-opt-name">Club de Golf Lugo</div><div class="booking-opt-price">Lugo · Desde 35 €</div></div></div>
+            <div class="booking-opt" data-comunidad="madrid" onclick="selectOpt(this)">
+              <div class="booking-opt-icon">🏛️</div><div><div class="booking-opt-name">R.C. Puerta de Hierro</div><div class="booking-opt-price">Madrid · Desde 150 €</div></div></div>
+            <div class="booking-opt" data-comunidad="malaga" onclick="selectOpt(this)">
+              <div class="booking-opt-icon">☀️</div><div><div class="booking-opt-name">Finca Cortesin</div><div class="booking-opt-price">Málaga · Desde 280 €</div></div></div>
+            <div class="booking-opt" data-comunidad="murcia" onclick="selectOpt(this)">
+              <div class="booking-opt-icon">⛳</div><div><div class="booking-opt-name">La Manga Club</div><div class="booking-opt-price">Murcia · Desde 90 €</div></div></div>
+            <div class="booking-opt" data-comunidad="navarra" onclick="selectOpt(this)">
+              <div class="booking-opt-icon">⛳</div><div><div class="booking-opt-name">Club de Golf Ulzama</div><div class="booking-opt-price">Navarra · Desde 60 €</div></div></div>
+            <div class="booking-opt" data-comunidad="ourense" onclick="selectOpt(this)">
+              <div class="booking-opt-icon">⛳</div><div><div class="booking-opt-name">Montealegre Club de Golf</div><div class="booking-opt-price">Ourense · Desde 40 €</div></div></div>
+            <div class="booking-opt" data-comunidad="palencia" onclick="selectOpt(this)">
+              <div class="booking-opt-icon">⛳</div><div><div class="booking-opt-name">Isla Dos Aguas Golf</div><div class="booking-opt-price">Palencia · Desde 30 €</div></div></div>
+            <div class="booking-opt" data-comunidad="pontevedra" onclick="selectOpt(this)">
+              <div class="booking-opt-icon">⛳</div><div><div class="booking-opt-name">Real Aeroclub de Vigo</div><div class="booking-opt-price">Pontevedra · Desde 55 €</div></div></div>
+            <div class="booking-opt" data-comunidad="salamanca" onclick="selectOpt(this)">
+              <div class="booking-opt-icon">⛳</div><div><div class="booking-opt-name">Villamayor Golf</div><div class="booking-opt-price">Salamanca · Desde 45 €</div></div></div>
+            <div class="booking-opt" data-comunidad="segovia" onclick="selectOpt(this)">
+              <div class="booking-opt-icon">⛳</div><div><div class="booking-opt-name">La Faisanera Golf</div><div class="booking-opt-price">Segovia · Desde 50 €</div></div></div>
+            <div class="booking-opt" data-comunidad="sevilla" onclick="selectOpt(this)">
+              <div class="booking-opt-icon">⛳</div><div><div class="booking-opt-name">R.C.G. de Sevilla</div><div class="booking-opt-price">Sevilla · Desde 100 €</div></div></div>
+            <div class="booking-opt" data-comunidad="soria" onclick="selectOpt(this)">
+              <div class="booking-opt-icon">⛳</div><div><div class="booking-opt-name">Club de Golf Soria</div><div class="booking-opt-price">Soria · Desde 35 €</div></div></div>
+            <div class="booking-opt" data-comunidad="tarragona" onclick="selectOpt(this)">
+              <div class="booking-opt-icon">⛳</div><div><div class="booking-opt-name">Lumine Golf Club</div><div class="booking-opt-price">Tarragona · Desde 85 €</div></div></div>
+            <div class="booking-opt" data-comunidad="santa-cruz-de-tenerife" onclick="selectOpt(this)">
+              <div class="booking-opt-icon">🏝️</div><div><div class="booking-opt-name">Abama Golf</div><div class="booking-opt-price">S.C. Tenerife · Desde 190 €</div></div></div>
+            <div class="booking-opt" data-comunidad="teruel" onclick="selectOpt(this)">
+              <div class="booking-opt-icon">⛳</div><div><div class="booking-opt-name">El Castillejo Golf</div><div class="booking-opt-price">Teruel · Desde 30 €</div></div></div>
+            <div class="booking-opt" data-comunidad="toledo" onclick="selectOpt(this)">
+              <div class="booking-opt-icon">⛳</div><div><div class="booking-opt-name">Palomarejos Golf</div><div class="booking-opt-price">Toledo · Desde 55 €</div></div></div>
+            <div class="booking-opt" data-comunidad="valencia" onclick="selectOpt(this)">
+              <div class="booking-opt-icon">🌊</div><div><div class="booking-opt-name">Parador de El Saler</div><div class="booking-opt-price">Valencia · Desde 110 €</div></div></div>
+            <div class="booking-opt" data-comunidad="valladolid" onclick="selectOpt(this)">
+              <div class="booking-opt-icon">⛳</div><div><div class="booking-opt-name">Entrepinos Golf</div><div class="booking-opt-price">Valladolid · Desde 45 €</div></div></div>
+            <div class="booking-opt" data-comunidad="bizkaia" onclick="selectOpt(this)">
+              <div class="booking-opt-icon">⛳</div><div><div class="booking-opt-name">R.S.G. de Neguri</div><div class="booking-opt-price">Bizkaia · Desde 120 €</div></div></div>
+            <div class="booking-opt" data-comunidad="zamora" onclick="selectOpt(this)">
+              <div class="booking-opt-icon">⛳</div><div><div class="booking-opt-name">Golf Villarrín</div><div class="booking-opt-price">Zamora · Desde 30 €</div></div></div>
+            <div class="booking-opt" data-comunidad="zaragoza" onclick="selectOpt(this)">
+              <div class="booking-opt-icon">⛳</div><div><div class="booking-opt-name">La Peñaza Golf</div><div class="booking-opt-price">Zaragoza · Desde 60 €</div></div></div>
+          </div>
+        </div>
+        <div class="booking-right">
+          <h3>Detalles de la partida</h3>
+          <div class="form-row">
+            <div class="form-field">
+              <label class="form-label">Jugadores</label>
+              <select class="form-input" id="campo-jugadores">
+                <option value="1">1 Jugador</option>
+                <option value="2" selected>2 Jugadores</option>
+                <option value="3">3 Jugadores</option>
+                <option value="4">4 Jugadores</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label class="form-label">Licencia RFEG (TeeTime ID)</label>
+              <input class="form-input" type="text" placeholder="Ej: CM00-1234">
+            </div>
+          </div>
+          <div class="cal-mini" id="cal-mini-campos">
+            <div class="cal-header">
+              <button class="cal-nav" onclick="changeMonth(-1, 'cal-mini-campos')">‹</button>
+              <span class="calTitle">Abril 2026</span>
+              <button class="cal-nav" onclick="changeMonth(1, 'cal-mini-campos')">›</button>
+            </div>
+            <div class="cal-grid calGrid"></div>
+          </div>
+          <div class="time-slots">
+            <div class="time-slot" onclick="selectTime(this)">08:30</div>
+            <div class="time-slot" onclick="selectTime(this)">08:40</div>
+            <div class="time-slot busy">08:50</div>
+            <div class="time-slot" onclick="selectTime(this)">09:00</div>
+            <div class="time-slot" onclick="selectTime(this)">09:10</div>
+            <div class="time-slot busy">09:20</div>
+            <div class="time-slot" onclick="selectTime(this)">09:30</div>
+            <div class="time-slot" onclick="selectTime(this)">09:40</div>
+          </div>
+          <button class="btn-confirm" onclick="confirmCampo()">Confirmar partida →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-bottom">
+      <p>© 2026 TeeTime. Todos los derechos reservados.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

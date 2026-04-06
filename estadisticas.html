@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Estadísticas Premium — TeeTime</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Outfit:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  body.inner-page .stats-section { padding-top: 120px; min-height: 100vh; position: relative; }
+  .stats-container { max-width: 900px; margin: 0 auto; padding: 2rem; background: white; border-radius: 20px; border: 1.5px solid var(--border); box-shadow: var(--shadow-soft); position: relative; overflow: hidden; }
+  
+  /* PREMIUM MOCKUP */
+  .premium-overlay { position: absolute; inset: 0; background: rgba(255,255,255,0.85); backdrop-filter: blur(12px); display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 10; text-align: center; padding: 2rem; transition: opacity 0.5s; }
+  .modal-close-overlay { position: absolute; top: 1.5rem; right: 1.5rem; background: transparent; border: none; font-size: 2rem; color: var(--text-soft); cursor: pointer; transition: color 0.2s; }
+  .modal-close-overlay:hover { color: var(--text); }
+  .premium-overlay h3 { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; color: var(--gold-dark); margin-bottom: 1rem; }
+  .premium-overlay p { font-size: 1.1rem; color: var(--text-soft); margin-bottom: 2rem; max-width: 500px; }
+  .btn-premium { background: linear-gradient(135deg, var(--gold), var(--gold-dark)); color: var(--green-deep); font-size: 1.1rem; font-weight: 700; padding: 1rem 2.5rem; border: none; border-radius: 50px; cursor: pointer; box-shadow: 0 8px 30px rgba(200,168,75,0.4); transition: transform 0.2s; }
+  .btn-premium:hover { transform: scale(1.05); }
+
+  /* STATS UI */
+  .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 3rem; }
+  .stat-card { padding: 1.5rem; background: var(--off-white); border: 1.5px solid var(--border); border-radius: 12px; text-align: center; }
+  .stat-val { font-family: 'DM Mono', monospace; font-size: 2.5rem; color: var(--green-deep); font-weight: 500; line-height: 1; margin-bottom: .5rem;}
+  .stat-label { font-size: .8rem; text-transform: uppercase; letter-spacing: .05em; color: var(--text-soft); font-weight: 600; }
+  
+  .stats-form { background: var(--off-white); padding: 2rem; border-radius: 12px; border: 1px solid var(--border); }
+  .stats-form h4 { font-size: 1.2rem; margin-bottom: 1.5rem; color: var(--green-deep); }
+  .stats-form .form-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+  
+  @media (max-width: 768px) {
+      .stats-grid { grid-template-columns: 1fr; }
+      .stats-form .form-row { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body class="inner-page">
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">Tee<span>Time</span></a>
+  <ul class="nav-links">
+    <li><a href="servicios.html">Servicios</a></li>
+    <li><a href="profesionales.html">Profesionales</a></li>
+    <li><a href="reservas.html">Reservar Clases</a></li>
+    <li><a href="campos.html">Campos</a></li>
+    <li><a href="estadisticas.html" style="color:var(--gold);">Estadísticas</a></li>
+  </ul>
+  <a href="reservas.html" class="nav-cta">Reservar clase</a>
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- STATS SECTION -->
+<section class="stats-section">
+  <div class="container">
+    <div class="reveal" style="text-align:center; margin-bottom: 3rem;">
+      <div class="section-tag" style="color:var(--gold-dark);">Área Personal</div>
+      <h2 class="section-title">Estadísticas de tu Juego</h2>
+      <p class="section-desc" style="margin: 0 auto;">Registra tus rondas, mejora tus números y compara tu rendimiento con la plataforma.</p>
+    </div>
+
+    <div class="stats-container reveal">
+      <!-- Muro de pago dinámico -->
+      <div class="premium-overlay" id="premiumOverlay">
+        <button class="modal-close-overlay" onclick="closePremium()" title="Cerrar vista previa">✕</button>
+        <h3>🔒 Estadísticas Premium</h3>
+        <p>Realiza un seguimiento milimétrico de tu progreso, evalúa tus métricas precisas y enfoca tu mejora.<br><br><b>Suscripción TeeTime PRO: 9.99€ / mes</b></p>
+        <button class="btn-premium" onclick="promptPremium()">Suscribirse Ahora</button>
+      </div>
+
+      <!-- Contenido de Estadísticas -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-val" id="valPutts">32.4</div>
+          <div class="stat-label">Putts por Ronda</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val" id="valCalles">64%</div>
+          <div class="stat-label">Calles Cogidas (FIR)</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val" id="valGreens">58%</div>
+          <div class="stat-label">Greens en Regulación (GIR)</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val" id="valRecup">41%</div>
+          <div class="stat-label">Recuperaciones (Scrambling)</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val" id="valBunker">28%</div>
+          <div class="stat-label">Salidas de Búnker (Saves)</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val" id="valMedia">78.5</div>
+          <div class="stat-label">Media de Golpes (Scoring Average)</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val" id="valHandicap">12.4</div>
+          <div class="stat-label">Hándicap WHS</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val" id="valDriver">245m</div>
+          <div class="stat-label">Distancia Media Driver</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val" id="valPenalty">1.2</div>
+          <div class="stat-label">Golpes de Penalidad Media</div>
+        </div>
+      </div>
+
+      <div class="stats-form">
+        <h4>Añadir Nueva Ronda</h4>
+        <div class="form-row">
+          <div class="form-field">
+             <label class="form-label">Golpes Totales</label>
+             <input type="number" class="form-input" id="inpGolpes" placeholder="Ej: 82">
+          </div>
+          <div class="form-field">
+             <label class="form-label">Total Putts</label>
+             <input type="number" class="form-input" id="inpPutts" placeholder="Ej: 30">
+          </div>
+          <div class="form-field">
+             <label class="form-label">% Calles (FIR)</label>
+             <input type="number" class="form-input" id="inpCalles" placeholder="Ej: 70">
+          </div>
+          <div class="form-field">
+             <label class="form-label">% Greens (GIR)</label>
+             <input type="number" class="form-input" id="inpGIR" placeholder="Ej: 60">
+          </div>
+          <div class="form-field" style="grid-column: span 4; display:flex; align-items:center; justify-content:center; margin-top: 1rem;">
+             <button class="btn-confirm" onclick="saveStats()" style="width:100%; max-width: 400px; padding: 1.2rem;">Guardar Ronda y Recalcular →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-bottom">
+      <p>© 2026 TeeTime. Todos los derechos reservados.</p>
+      <div class="footer-badge">⛳ Hecho con pasión por el golf</div>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

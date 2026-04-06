@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Servicios — TeeTime</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Outfit:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="inner-page">
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">Tee<span>Time</span></a>
+  <ul class="nav-links">
+    <li><a href="servicios.html">Servicios</a></li>
+    <li><a href="profesionales.html">Profesionales</a></li>
+    <li><a href="reservas.html">Reservar Clases</a></li>
+    <li><a href="campos.html">Campos</a></li>
+    <li><a href="estadisticas.html">Estadísticas</a></li>
+    <li><a href="contenido.html">Contenido</a></li>
+  </ul>
+  <a href="reservas.html" class="nav-cta">Reservar clase</a>
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" onclick="toggleMenu()">✕</button>
+  <a href="servicios.html">Servicios</a>
+  <a href="profesionales.html">Profesionales</a>
+  <a href="reservas.html">Reservar Clases</a>
+  <a href="campos.html">Campos</a>
+  <a href="estadisticas.html">Estadísticas</a>
+  <a href="contenido.html">Contenido</a>
+  <a href="reservas.html" class="nav-cta" style="font-size:1rem;padding:.75rem 2rem;">Reservar clase</a>
+</div>
+
+<!-- SERVICES -->
+<section class="services-section">
+  <div class="container">
+    <div class="services-header reveal">
+      <div>
+        <div class="section-tag">Catálogo</div>
+        <h2 class="section-title">Todos nuestros servicios</h2>
+        <p class="section-desc">Perfecciona tu golf trabajando todas las dimensiones de tu juego.</p>
+      </div>
+      <div class="services-tabs">
+        <button class="svc-tab active" onclick="filterSvc('todos',this)">Todos</button>
+        <button class="svc-tab" onclick="filterSvc('golf',this)">Golf</button>
+        <button class="svc-tab" onclick="filterSvc('fitness',this)">Fitness</button>
+        <button class="svc-tab" onclick="filterSvc('mental',this)">Mental</button>
+      </div>
+    </div>
+    <div class="services-grid" id="svcGrid">
+      <div class="svc-card reveal" data-cat="golf">
+        <div class="svc-card-img" style="background-image: url('assets/servicios_individual.jpg');"></div>
+        <div class="svc-card-body">
+          <span class="svc-badge">Golf · Individual</span>
+          <div class="svc-name">Clase individual con pro</div>
+          <div class="svc-desc">Sesión personalizada de 60 min con profesional certificado PGA. Análisis de swing incluido.</div>
+          <div class="svc-price">
+            <div><div class="svc-price-from">desde</div><div class="svc-price-val">45 €/h</div></div>
+            <a href="reservas.html" class="btn-book">Reservar</a>
+          </div>
+        </div>
+      </div>
+      <div class="svc-card reveal" data-cat="golf" style="transition-delay:.1s">
+        <div class="svc-card-img" style="background-image: url('assets/servicios_grupal.jpg');"></div>
+        <div class="svc-card-body">
+          <span class="svc-badge">Golf · Grupal</span>
+          <div class="svc-name">Clase colectiva</div>
+          <div class="svc-desc">Grupos reducidos de 4–6 personas. Ideal para principiantes. Ambiente dinámico y divertido.</div>
+          <div class="svc-price">
+            <div><div class="svc-price-from">desde</div><div class="svc-price-val">18 €/h</div></div>
+            <a href="reservas.html" class="btn-book">Reservar</a>
+          </div>
+        </div>
+      </div>
+      <div class="svc-card reveal" data-cat="golf" style="transition-delay:.2s">
+        <div class="svc-card-img" style="background-image: url('assets/servicios_online.jpg');"></div>
+        <div class="svc-card-body">
+          <span class="svc-badge">Golf · Online</span>
+          <div class="svc-name">Sesión online en directo</div>
+          <div class="svc-desc">Análisis de vídeo de tu swing + coaching en tiempo real por videollamada. Sin salir de casa.</div>
+          <div class="svc-price">
+            <div><div class="svc-price-from">desde</div><div class="svc-price-val">30 €/h</div></div>
+            <a href="reservas.html" class="btn-book">Reservar</a>
+          </div>
+        </div>
+      </div>
+      <div class="svc-card reveal" data-cat="fitness">
+        <div class="svc-card-img" style="background-image: url('assets/servicios_fitness.jpg');"></div>
+        <div class="svc-card-body">
+          <span class="svc-badge">Fitness · Golf</span>
+          <div class="svc-name">Entrenador físico especializado</div>
+          <div class="svc-desc">Preparación física enfocada al golf: movilidad, core, rotación y prevención de lesiones.</div>
+          <div class="svc-price">
+            <div><div class="svc-price-from">desde</div><div class="svc-price-val">40 €/h</div></div>
+            <a href="reservas.html" class="btn-book">Reservar</a>
+          </div>
+        </div>
+      </div>
+      <div class="svc-card reveal" data-cat="mental" style="transition-delay:.1s">
+        <div class="svc-card-img" style="background-image: url('assets/servicios_mental.jpg');"></div>
+        <div class="svc-card-body">
+          <span class="svc-badge">Mental · Golf</span>
+          <div class="svc-name">Psicólogo deportivo</div>
+          <div class="svc-desc">Gestión del estrés en competición, concentración y mentalidad ganadora específica para el golf.</div>
+          <div class="svc-price">
+            <div><div class="svc-price-from">desde</div><div class="svc-price-val">55 €/h</div></div>
+            <a href="reservas.html" class="btn-book">Reservar</a>
+          </div>
+        </div>
+      </div>
+      <div class="svc-card reveal" data-cat="golf" style="transition-delay:.2s">
+        <div class="svc-card-img" style="background-image: url('assets/servicios_premium.jpg');"></div>
+        <div class="svc-card-body">
+          <span class="svc-badge">Golf · Premium</span>
+          <div class="svc-name">Pack iniciación completo</div>
+          <div class="svc-desc">5 clases individuales + análisis biomecánico + material de iniciación recomendado. Todo incluido.</div>
+          <div class="svc-price">
+            <div><div class="svc-price-from">desde</div><div class="svc-price-val">199 €</div></div>
+            <a href="reservas.html" class="btn-book">Reservar</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo-foot">Tee<span>Time</span></a>
+        <p>El marketplace de golf que conecta jugadores con los mejores profesionales certificados de España. Más golf, mejor golf.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Servicios</h5>
+        <a href="servicios.html">Clases individuales</a>
+        <a href="servicios.html">Clases colectivas</a>
+        <a href="campos.html">Reservas Green Fees</a>
+        <a href="servicios.html">Entrenadores físicos</a>
+        <a href="servicios.html">Psicología deportiva</a>
+      </div>
+      <div class="footer-col">
+        <h5>Contenido</h5>
+        <a href="contenido.html">Reseñas de campos</a>
+        <a href="contenido.html">Material y equipo</a>
+        <a href="contenido.html">Entrevistas</a>
+        <a href="contenido.html">Consejos técnicos</a>
+      </div>
+      <div class="footer-col">
+        <h5>TeeTime</h5>
+        <a href="index.html">Sobre nosotros</a>
+        <a href="profesionales.html">Hazte profesional</a>
+        <a href="#">Contacto</a>
+        <a href="#">Términos de uso</a>
+        <a href="#">Privacidad</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 TeeTime. Todos los derechos reservados.</p>
+      <div class="footer-badge">⛳ Hecho con pasión por el golf</div>
+    </div>
+  </div>
+</footer>
+
+<!-- CHATBOT BUTTON -->
+<button class="chat-btn" onclick="toggleChat()" title="Asistente TeeTime IA">🤖</button>
+
+<!-- CHATBOT PANEL -->
+<div class="chat-panel" id="chatPanel">
+  <div class="chat-header">
+    <div class="chat-avatar">⛳</div>
+    <div class="chat-header-info">
+      <h4>TeeBot · Asistente IA</h4>
+      <p>Resuelvo tus dudas sobre golf</p>
+    </div>
+    <div class="chat-online"></div>
+  </div>
+  <div class="chat-messages" id="chatMessages">
+    <div class="msg bot"><div class="msg-bubble">¡Hola! 👋 Soy TeeBot, tu asistente de golf con IA. ¿En qué puedo ayudarte hoy?</div></div>
+  </div>
+  <div class="chat-suggestions" id="chatSugg">
+    <button class="chat-sugg" onclick="sendSugg(this)">¿Cómo empezar en el golf?</button>
+    <button class="chat-sugg" onclick="sendSugg(this)">¿Qué palos necesito?</button>
+    <button class="chat-sugg" onclick="sendSugg(this)">¿Cómo reservo una clase?</button>
+    <button class="chat-sugg" onclick="sendSugg(this)">¿Cuánto cuestan las clases?</button>
+  </div>
+  <div class="chat-input-row">
+    <input class="chat-input" id="chatInput" type="text" placeholder="Escribe tu pregunta..." onkeydown="if(event.key==='Enter')sendChat()">
+    <button class="chat-send" onclick="sendChat()">➤</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

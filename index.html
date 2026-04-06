@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TeeTime — Marketplace de Golf</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Outfit:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <a href="index.html" class="nav-logo">Tee<span>Time</span></a>
+    <ul class="nav-links">
+      <li><a href="servicios.html">Servicios</a></li>
+      <li><a href="profesionales.html">Profesionales</a></li>
+      <li><a href="reservas.html">Reservar Clases</a></li>
+      <li><a href="campos.html">Campos</a></li>
+      <li><a href="estadisticas.html">Estadísticas</a></li>
+      <li><a href="contenido.html">Contenido</a></li>
+    </ul>
+    <a href="reservas.html" class="nav-cta">Reservar clase</a>
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-close" onclick="toggleMenu()">✕</button>
+    <a href="servicios.html">Servicios</a>
+    <a href="profesionales.html">Profesionales</a>
+    <a href="reservas.html">Reservar Clases</a>
+    <a href="campos.html">Campos</a>
+    <a href="estadisticas.html">Estadísticas</a>
+    <a href="contenido.html">Contenido</a>
+    <a href="reservas.html" class="nav-cta" style="font-size:1rem;padding:.75rem 2rem;">Reservar clase</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero" id="inicio">
+    <div class="hero-grid"></div>
+    <svg class="hero-flag" viewBox="0 0 200 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="100" y1="20" x2="100" y2="380" stroke="white" stroke-width="3" />
+      <polygon points="100,20 180,60 100,100" fill="white" />
+      <circle cx="100" cy="380" r="20" fill="white" />
+    </svg>
+
+    <div class="container" style="width: 100%;">
+      <div style="height: 100vh; display: flex; flex-direction: column; justify-content: center; position: relative;">
+        <h1 class="hero-title" style="margin: 0; animation: fadeUp 1s ease both;">
+          TEETIME,<br>
+          A HIGHER<br>
+          <em>STANDARD.</em>
+        </h1>
+        <div
+          style="position: absolute; bottom: 6vh; left: 0; width: 100%; display: flex; justify-content: flex-start; animation: fadeUp 1.2s 0.8s ease both;">
+          <div style="font-size: 2.2rem; color: var(--gold); animation: arrowBounce 2s infinite ease-in-out;">↓</div>
+        </div>
+      </div>
+
+      <div class="hero-content" style="padding-top: 5vh; min-height: 50vh;">
+        <p class="hero-desc">
+          TeeTime conecta a jugadores con los mejores profesionales certificados del sector y te permite reservar green
+          fees en campos exclusivos.
+        </p>
+        <div class="hero-actions">
+          <a href="reservas.html" class="btn-hero-primary">Encuentra tu profesor ⛳</a>
+          <a href="campos.html" class="btn-hero-ghost">Reservar campo</a>
+        </div>
+        <div class="hero-stats">
+          <div>
+            <div class="hero-stat-num">+200</div>
+            <div class="hero-stat-label">Profesionales</div>
+          </div>
+          <div>
+            <div class="hero-stat-num">+1.500</div>
+            <div class="hero-stat-label">Jugadores</div>
+          </div>
+          <div>
+            <div class="hero-stat-num">4.9★</div>
+            <div class="hero-stat-label">Valoración media</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how-section">
+    <div class="container">
+      <div class="reveal">
+        <div class="section-tag">Cómo funciona</div>
+        <h2 class="section-title">Simple como el swing perfecto</h2>
+        <p class="section-desc">Cuatro pasos para conectar con el profesional ideal o el campo perfecto.</p>
+      </div>
+      <div class="how-grid">
+        <div class="how-card reveal">
+          <div class="how-num">01</div>
+          <div class="how-icon">🔍</div>
+          <div class="how-title">Explora y filtra</div>
+          <div class="how-text">Busca profesionales por especialidad o campos por ubicación. Compara valoraciones y
+            condiciones.</div>
+        </div>
+        <div class="how-card reveal" style="transition-delay:.1s">
+          <div class="how-num">02</div>
+          <div class="how-icon">📅</div>
+          <div class="how-title">Elige fecha</div>
+          <div class="how-text">Selecciona el horario que mejor se adapta a ti. Integración en tiempo real para todos
+            los servicios.</div>
+        </div>
+        <div class="how-card reveal" style="transition-delay:.2s">
+          <div class="how-num">03</div>
+          <div class="how-icon">💳</div>
+          <div class="how-title">Reserva segura</div>
+          <div class="how-text">Pago seguro a través de la plataforma. Recibe confirmación automática en el instante.
+          </div>
+        </div>
+        <div class="how-card reveal" style="transition-delay:.3s">
+          <div class="how-num">04</div>
+          <div class="how-icon">⛳</div>
+          <div class="how-title">¡A jugar!</div>
+          <div class="how-text">Disfruta tu clase o tu partida. Valora el servicio y acumula historial para mejorar tu
+            nivel.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testi-section">
+    <div class="container">
+      <div class="reveal" style="text-align:center;">
+        <div class="section-tag">Testimonios</div>
+        <h2 class="section-title">Lo que dicen nuestros jugadores</h2>
+      </div>
+      <div class="testi-grid">
+        <div class="testi-card reveal">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">"Empecé sin saber ni coger un palo. En dos meses, con las clases de Carlos, ya juego mi
+            primer torneo amateur. TeeTime lo hizo muy fácil."</p>
+          <div class="testi-author">
+            <div class="testi-avatar">😊</div>
+            <div>
+              <div class="testi-name">Miguel Torres</div>
+              <div class="testi-meta">Principiante · Madrid</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card reveal" style="transition-delay:.1s">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">"Poder reservar un Green Fee en La Finca directo desde la app, ahorrándome la gestión
+            telefónica, es magia pura. Súper ágil."</p>
+          <div class="testi-author">
+            <div class="testi-avatar">🙋‍♀️</div>
+            <div>
+              <div class="testi-name">Laura Gómez</div>
+              <div class="testi-meta">Intermedia · Alicante</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card reveal" style="transition-delay:.2s">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">"La psicóloga deportiva fue un descubrimiento. Ahora gestiono mucho mejor la presión en
+            competición. Servicio diferencial."</p>
+          <div class="testi-author">
+            <div class="testi-avatar">⛳</div>
+            <div>
+              <div class="testi-name">Rubén Martínez</div>
+              <div class="testi-meta">Avanzado · Sevilla</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUOTES MARQUEE -->
+  <section class="quotes-section">
+    <div class="marquee-wrapper">
+      <div class="marquee-content">
+        <div class="quote-card">
+          <div class="quote-text">«De todos los obstáculos en un campo de golf, el más grande es el que está entre las
+            orejas.»</div>
+          <div class="quote-author">Jack Nicklaus</div>
+        </div>
+        <div class="quote-card">
+          <div class="quote-text">«No he fracasado. Solo he encontrado 10.000 formas que no funcionan.»</div>
+          <div class="quote-author">Thomas Edison</div>
+        </div>
+        <div class="quote-card">
+          <div class="quote-text">«El éxito no es el final, el fracaso no es fatal: es el coraje para continuar lo que
+            cuenta.»</div>
+          <div class="quote-author">Winston Churchill</div>
+        </div>
+        <div class="quote-card">
+          <div class="quote-text">«Miro a los ojos de mi oponente, y si me miran a mí, sé que lo tengo.»</div>
+          <div class="quote-author">Seve Ballesteros</div>
+        </div>
+        <div class="quote-card">
+          <div class="quote-text">«Tienes poder sobre tu mente, no sobre los eventos externos. Date cuenta de esto, y
+            encontrarás fuerza.»</div>
+          <div class="quote-author">Marco Aurelio</div>
+        </div>
+        <div class="quote-card">
+          <div class="quote-text">«La parte más importante de jugar al golf es creer verdaderamente en ti mismo.»</div>
+          <div class="quote-author">Tiger Woods</div>
+        </div>
+        <div class="quote-card">
+          <div class="quote-text">«No cuentes los días, haz que los días cuenten.»</div>
+          <div class="quote-author">Muhammad Ali</div>
+        </div>
+        <div class="quote-card">
+          <div class="quote-text">«El golf no es un juego de golpes perfectos. Es un juego de fallar los mejores.»</div>
+          <div class="quote-author">Ben Hogan</div>
+        </div>
+        <div class="quote-card">
+          <div class="quote-text">«La excelencia no es un acto, sino un hábito.»</div>
+          <div class="quote-author">Aristóteles</div>
+        </div>
+        <div class="quote-card">
+          <div class="quote-text">«He fallado más de 9000 tiros en mi carrera... y es por eso que tengo éxito.»</div>
+          <div class="quote-author">Michael Jordan</div>
+        </div>
+        <div class="quote-card">
+          <div class="quote-text">«Un mal golpe no cuenta hasta que no das el siguiente.»</div>
+          <div class="quote-author">Lee Trevino</div>
+        </div>
+        <div class="quote-card">
+          <div class="quote-text">«El hombre que mueve una montaña comienza llevándose piedras pequeñas.»</div>
+          <div class="quote-author">Confucio</div>
+        </div>
+        <div class="quote-card">
+          <div class="quote-text">«El golf es engañosamente simple e infinitamente complicado.»</div>
+          <div class="quote-author">Arnold Palmer</div>
+        </div>
+        <div class="quote-card">
+          <div class="quote-text">«No te preocupes por los obstáculos; enfócate en el objetivo.»</div>
+          <div class="quote-author">Bruce Lee</div>
+        </div>
+        <div class="quote-card">
+          <div class="quote-text">«Cualquiera que diga que el golf es fácil, no ha intentado lo suficiente.»</div>
+          <div class="quote-author">Harvey Penick</div>
+        </div>
+        <div class="quote-card">
+          <div class="quote-text">«No se trata de si te derriban, sino de si te levantas.»</div>
+          <div class="quote-author">Vince Lombardi</div>
+        </div>
+      </div>
+      <!-- Duplicado para crear ilusión de loop infinito -->
+      <div class="marquee-content" aria-hidden="true">
+        <div class="quote-card">
+          <div class="quote-text">«De todos los obstáculos en un campo de golf, el más grande es el que está entre las
+            orejas.»</div>
+          <div class="quote-author">Jack Nicklaus</div>
+        </div>
+        <div class="quote-card">
+          <div class="quote-text">«No he fracasado. Solo he encontrado 10.000 formas que no funcionan.»</div>
+          <div class="quote-author">Thomas Edison</div>
+        </div>
+        <div class="quote-card">
+          <div class="quote-text">«El éxito no es el final, el fracaso no es fatal: es el coraje para continuar lo que
+            cuenta.»</div>
+          <div class="quote-author">Winston Churchill</div>
+        </div>
+        <div class="quote-card">
+          <div class="quote-text">«Miro a los ojos de mi oponente, y si me miran a mí, sé que lo tengo.»</div>
+          <div class="quote-author">Seve Ballesteros</div>
+        </div>
+        <div class="quote-card">
+          <div class="quote-text">«Tienes poder sobre tu mente, no sobre los eventos externos. Date cuenta de esto, y
+            encontrarás fuerza.»</div>
+          <div class="quote-author">Marco Aurelio</div>
+        </div>
+        <div class="quote-card">
+          <div class="quote-text">«La parte más importante de jugar al golf es creer verdaderamente en ti mismo.»</div>
+          <div class="quote-author">Tiger Woods</div>
+        </div>
+        <div class="quote-card">
+          <div class="quote-text">«No cuentes los días, haz que los días cuenten.»</div>
+          <div class="quote-author">Muhammad Ali</div>
+        </div>
+        <div class="quote-card">
+          <div class="quote-text">«El golf no es un juego de golpes perfectos. Es un juego de fallar los mejores.»</div>
+          <div class="quote-author">Ben Hogan</div>
+        </div>
+        <div class="quote-card">
+          <div class="quote-text">«La excelencia no es un acto, sino un hábito.»</div>
+          <div class="quote-author">Aristóteles</div>
+        </div>
+        <div class="quote-card">
+          <div class="quote-text">«He fallado más de 9000 tiros en mi carrera... y es por eso que tengo éxito.»</div>
+          <div class="quote-author">Michael Jordan</div>
+        </div>
+        <div class="quote-card">
+          <div class="quote-text">«Un mal golpe no cuenta hasta que no das el siguiente.»</div>
+          <div class="quote-author">Lee Trevino</div>
+        </div>
+        <div class="quote-card">
+          <div class="quote-text">«El hombre que mueve una montaña comienza llevándose piedras pequeñas.»</div>
+          <div class="quote-author">Confucio</div>
+        </div>
+        <div class="quote-card">
+          <div class="quote-text">«El golf es engañosamente simple e infinitamente complicado.»</div>
+          <div class="quote-author">Arnold Palmer</div>
+        </div>
+        <div class="quote-card">
+          <div class="quote-text">«No te preocupes por los obstáculos; enfócate en el objetivo.»</div>
+          <div class="quote-author">Bruce Lee</div>
+        </div>
+        <div class="quote-card">
+          <div class="quote-text">«Cualquiera que diga que el golf es fácil, no ha intentado lo suficiente.»</div>
+          <div class="quote-author">Harvey Penick</div>
+        </div>
+        <div class="quote-card">
+          <div class="quote-text">«No se trata de si te derriban, sino de si te levantas.»</div>
+          <div class="quote-author">Vince Lombardi</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA STRIP -->
+  <div class="cta-strip">
+    <div class="container">
+      <h2>¿Listo para mejorar tu juego?</h2>
+      <p>Únete a más de 1.500 jugadores que ya entrenan con los mejores profesionales y visitan los mejores campos a
+        través de TeeTime.</p>
+      <a href="reservas.html" class="btn-cta-dark">
+        Reservar mi primera clase →
+      </a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo-foot">Tee<span>Time</span></a>
+          <p>El marketplace de golf que conecta jugadores con los mejores profesionales certificados de España. Más
+            golf, mejor golf.</p>
+        </div>
+        <div class="footer-col">
+          <h5>Servicios</h5>
+          <a href="servicios.html">Clases individuales</a>
+          <a href="servicios.html">Clases colectivas</a>
+          <a href="campos.html">Reservas Green Fees</a>
+          <a href="servicios.html">Entrenadores físicos</a>
+          <a href="servicios.html">Psicología deportiva</a>
+        </div>
+        <div class="footer-col">
+          <h5>Contenido</h5>
+          <a href="contenido.html">Reseñas de campos</a>
+          <a href="contenido.html">Material y equipo</a>
+          <a href="contenido.html">Entrevistas</a>
+          <a href="contenido.html">Consejos técnicos</a>
+        </div>
+        <div class="footer-col">
+          <h5>TeeTime</h5>
+          <a href="index.html">Sobre nosotros</a>
+          <a href="profesionales.html">Hazte profesional</a>
+          <a href="#">Contacto</a>
+          <a href="#">Términos de uso</a>
+          <a href="#">Privacidad</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 TeeTime. Todos los derechos reservados.</p>
+        <div class="footer-badge">⛳ Hecho con pasión por el golf</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- CHATBOT BUTTON -->
+  <button class="chat-btn" onclick="toggleChat()" title="Asistente TeeTime IA">🤖</button>
+
+  <!-- CHATBOT PANEL -->
+  <div class="chat-panel" id="chatPanel">
+    <div class="chat-header">
+      <div class="chat-avatar">⛳</div>
+      <div class="chat-header-info">
+        <h4>TeeBot · Asistente IA</h4>
+        <p>Resuelvo tus dudas, inquietudes y te ayudo en lo que necesites sobre golf</p>
+      </div>
+      <div class="chat-online"></div>
+    </div>
+    <div class="chat-messages" id="chatMessages">
+      <div class="msg bot">
+        <div class="msg-bubble">¡Hola! 👋 Soy TeeBot, tu asistente de golf con IA. ¿En qué puedo ayudarte hoy?</div>
+      </div>
+    </div>
+    <div class="chat-suggestions" id="chatSugg">
+      <button class="chat-sugg" onclick="sendSugg(this)">¿Cómo empezar en el golf?</button>
+      <button class="chat-sugg" onclick="sendSugg(this)">¿Qué tipo de palos necesito?</button>
+      <button class="chat-sugg" onclick="sendSugg(this)">¿Cómo reservo una clase?</button>
+      <button class="chat-sugg" onclick="sendSugg(this)">¿Cuánto cuestan las clases?</button>
+    </div>
+    <div class="chat-input-row">
+      <input class="chat-input" id="chatInput" type="text" placeholder="Escribe tu pregunta..."
+        onkeydown="if(event.key==='Enter')sendChat()">
+      <button class="chat-send" onclick="sendChat()">➤</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

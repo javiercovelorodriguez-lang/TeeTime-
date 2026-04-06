@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profesionales — TeeTime</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Outfit:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="inner-page">
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">Tee<span>Time</span></a>
+  <ul class="nav-links">
+    <li><a href="servicios.html">Servicios</a></li>
+    <li><a href="profesionales.html">Profesionales</a></li>
+    <li><a href="reservas.html">Reservar Clases</a></li>
+    <li><a href="campos.html">Campos</a></li>
+    <li><a href="estadisticas.html">Estadísticas</a></li>
+    <li><a href="contenido.html">Contenido</a></li>
+  </ul>
+  <a href="reservas.html" class="nav-cta">Reservar clase</a>
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" onclick="toggleMenu()">✕</button>
+  <a href="servicios.html">Servicios</a>
+  <a href="profesionales.html">Profesionales</a>
+  <a href="reservas.html">Reservar Clases</a>
+  <a href="campos.html">Campos</a>
+  <a href="estadisticas.html">Estadísticas</a>
+  <a href="contenido.html">Contenido</a>
+  <a href="reservas.html" class="nav-cta" style="font-size:1rem;padding:.75rem 2rem;">Reservar clase</a>
+</div>
+
+<!-- PROFESSIONALS -->
+<section class="pros-section">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-tag">Directorio</div>
+      <h2 class="section-title">Nuestros Profesionales</h2>
+      <p class="section-desc">Todos nuestros profesionales están certificados y verificados. Encuentra el apoyo ideal que necesitas para impulsar tu handicap.</p>
+    </div>
+    <div class="pros-grid">
+      <div class="pro-card reveal">
+        <div class="pro-avatar">👨‍🏌️</div>
+        <div class="pro-body">
+          <div class="pro-name">Carlos Mendoza</div>
+          <div class="pro-role">Profesor PGA · Certificado</div>
+          <div class="pro-stars">★★★★★ <span style="color:var(--text-soft);font-size:.75rem;">(128 reseñas)</span></div>
+          <div class="pro-tags">
+            <span class="pro-tag">Principiantes</span>
+            <span class="pro-tag">Swing</span>
+            <span class="pro-tag">Madrid</span>
+          </div>
+        </div>
+      </div>
+      <div class="pro-card reveal" style="transition-delay:.1s">
+        <div class="pro-avatar">👩‍🏌️</div>
+        <div class="pro-body">
+          <div class="pro-name">Ana Villanueva</div>
+          <div class="pro-role">Profesora PGA · Nivel 3</div>
+          <div class="pro-stars">★★★★★ <span style="color:var(--text-soft);font-size:.75rem;">(94 reseñas)</span></div>
+          <div class="pro-tags">
+            <span class="pro-tag">Online</span>
+            <span class="pro-tag">Putting</span>
+            <span class="pro-tag">Vigo</span>
+          </div>
+        </div>
+      </div>
+      <div class="pro-card reveal" style="transition-delay:.2s">
+        <div class="pro-avatar">🏋️</div>
+        <div class="pro-body">
+          <div class="pro-name">Marcos Gil</div>
+          <div class="pro-role">Entrenador Físico · Golf</div>
+          <div class="pro-stars">★★★★☆ <span style="color:var(--text-soft);font-size:.75rem;">(67 reseñas)</span></div>
+          <div class="pro-tags">
+            <span class="pro-tag">Movilidad</span>
+            <span class="pro-tag">Core</span>
+            <span class="pro-tag">Online</span>
+          </div>
+        </div>
+      </div>
+      <div class="pro-card reveal" style="transition-delay:.3s">
+        <div class="pro-avatar">🧠</div>
+        <div class="pro-body">
+          <div class="pro-name">Dra. Lucía Ramos</div>
+          <div class="pro-role">Psicóloga Deportiva</div>
+          <div class="pro-stars">★★★★★ <span style="color:var(--text-soft);font-size:.75rem;">(52 reseñas)</span></div>
+          <div class="pro-tags">
+            <span class="pro-tag">Competición</span>
+            <span class="pro-tag">Mental</span>
+            <span class="pro-tag">Online</span>
+          </div>
+        </div>
+      </div>
+    
+      <!-- Additional mock pros to fill the directory -->
+      <div class="pro-card reveal">
+        <div class="pro-avatar">🧑‍🏌️</div>
+        <div class="pro-body">
+          <div class="pro-name">Javier Castro</div>
+          <div class="pro-role">Profesor TPI</div>
+          <div class="pro-stars">★★★★☆ <span style="color:var(--text-soft);font-size:.75rem;">(40 reseñas)</span></div>
+          <div class="pro-tags">
+            <span class="pro-tag">Biomecánica</span>
+            <span class="pro-tag">Barcelona</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA STRIP -->
+<div class="cta-strip">
+  <div class="container">
+    <h2>¿Ya has elegido a tu instructor?</h2>
+    <p>Inicia tu entrenamiento con los mejores en TeeTime y empieza a bajar tu handicap.</p>
+    <a href="reservas.html" class="btn-cta-dark">Reservar mi clase con ellos →</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo-foot">Tee<span>Time</span></a>
+        <p>El marketplace de golf que conecta jugadores con los mejores profesionales certificados de España. Más golf, mejor golf.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Servicios</h5>
+        <a href="servicios.html">Clases individuales</a>
+        <a href="servicios.html">Clases colectivas</a>
+        <a href="campos.html">Reservas Green Fees</a>
+        <a href="servicios.html">Entrenadores físicos</a>
+        <a href="servicios.html">Psicología deportiva</a>
+      </div>
+      <div class="footer-col">
+        <h5>Contenido</h5>
+        <a href="contenido.html">Reseñas de campos</a>
+        <a href="contenido.html">Material y equipo</a>
+        <a href="contenido.html">Entrevistas</a>
+        <a href="contenido.html">Consejos técnicos</a>
+      </div>
+      <div class="footer-col">
+        <h5>TeeTime</h5>
+        <a href="index.html">Sobre nosotros</a>
+        <a href="profesionales.html">Hazte profesional</a>
+        <a href="#">Contacto</a>
+        <a href="#">Términos de uso</a>
+        <a href="#">Privacidad</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 TeeTime. Todos los derechos reservados.</p>
+      <div class="footer-badge">⛳ Hecho con pasión por el golf</div>
+    </div>
+  </div>
+</footer>
+
+<!-- CHATBOT BUTTON -->
+<button class="chat-btn" onclick="toggleChat()" title="Asistente TeeTime IA">🤖</button>
+
+<!-- CHATBOT PANEL -->
+<div class="chat-panel" id="chatPanel">
+  <div class="chat-header">
+    <div class="chat-avatar">⛳</div>
+    <div class="chat-header-info">
+      <h4>TeeBot · Asistente IA</h4>
+      <p>Resuelvo tus dudas sobre golf</p>
+    </div>
+    <div class="chat-online"></div>
+  </div>
+  <div class="chat-messages" id="chatMessages">
+    <div class="msg bot"><div class="msg-bubble">¡Hola! 👋 Soy TeeBot, tu asistente de golf con IA. ¿En qué puedo ayudarte hoy?</div></div>
+  </div>
+  <div class="chat-suggestions" id="chatSugg">
+    <button class="chat-sugg" onclick="sendSugg(this)">¿Cómo empezar en el golf?</button>
+    <button class="chat-sugg" onclick="sendSugg(this)">¿Qué palos necesito?</button>
+    <button class="chat-sugg" onclick="sendSugg(this)">¿Cómo reservo una clase?</button>
+  </div>
+  <div class="chat-input-row">
+    <input class="chat-input" id="chatInput" type="text" placeholder="Escribe tu pregunta..." onkeydown="if(event.key==='Enter')sendChat()">
+    <button class="chat-send" onclick="sendChat()">➤</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

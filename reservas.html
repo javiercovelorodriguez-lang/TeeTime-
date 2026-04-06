@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reservar Clases — TeeTime</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Outfit:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  body.inner-page .booking-section { padding-top: 120px; min-height: 100vh; }
+  .booking-widget-wrapper { max-width: 1000px; margin: 3rem auto 0; }
+</style>
+</head>
+<body class="inner-page">
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">Tee<span>Time</span></a>
+  <ul class="nav-links">
+    <li><a href="servicios.html">Servicios</a></li>
+    <li><a href="profesionales.html">Profesionales</a></li>
+    <li><a href="reservas.html">Reservar Clases</a></li>
+    <li><a href="campos.html">Campos</a></li>
+    <li><a href="estadisticas.html">Estadísticas</a></li>
+    <li><a href="contenido.html">Contenido</a></li>
+  </ul>
+  <a href="reservas.html" class="nav-cta">Reservar clase</a>
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" onclick="toggleMenu()">✕</button>
+  <a href="servicios.html">Servicios</a>
+  <a href="profesionales.html">Profesionales</a>
+  <a href="reservas.html">Reservar Clases</a>
+  <a href="campos.html">Campos</a>
+  <a href="estadisticas.html">Estadísticas</a>
+  <a href="contenido.html">Contenido</a>
+</div>
+
+<!-- BOOKING CLASES -->
+<section class="booking-section">
+  <div class="container">
+    <div class="reveal" style="text-align:center;">
+      <div class="section-tag" style="color:var(--gold-light);">Entrenamiento</div>
+      <h2 class="section-title" style="color:white;">Reserva tu Clase</h2>
+      <p class="section-desc" style="color:rgba(255,255,255,0.65); margin: 0 auto;">Elige el servicio de entrenamiento que mejor encaja con tus objetivos, y asegura tu hora.</p>
+      <div style="margin-top:2rem;">
+         <a href="campos.html" style="color:var(--gold-light); font-size:.9rem; text-decoration:none; border-bottom:1px solid var(--gold-light);">¿Prefieres reservar un Green Fee en un campo? →</a>
+      </div>
+    </div>
+    <div class="booking-widget-wrapper">
+      <div class="booking-widget reveal" id="widget-clases">
+        <div class="booking-left">
+          <h3>¿Qué necesitas?</h3>
+          <p>Selecciona el tipo de servicio que mejor se adapta a ti.</p>
+          <div class="booking-options">
+            <div class="booking-opt selected" onclick="selectOpt(this)">
+              <div class="booking-opt-icon">⛳</div><div><div class="booking-opt-name">Clase individual</div><div class="booking-opt-price">Desde 45 €/h</div></div>
+            </div>
+            <div class="booking-opt" onclick="selectOpt(this)">
+              <div class="booking-opt-icon">👥</div><div><div class="booking-opt-name">Clase colectiva</div><div class="booking-opt-price">Desde 18 €/h</div></div>
+            </div>
+            <div class="booking-opt" onclick="selectOpt(this)">
+              <div class="booking-opt-icon">💻</div><div><div class="booking-opt-name">Sesión online</div><div class="booking-opt-price">Desde 30 €/h</div></div>
+            </div>
+            <div class="booking-opt" onclick="selectOpt(this)">
+              <div class="booking-opt-icon">🏋️</div><div><div class="booking-opt-name">Entrenador físico</div><div class="booking-opt-price">Desde 40 €/h</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="booking-right">
+          <h3>Selecciona Profesional y Fecha</h3>
+          <div class="form-row" style="margin-bottom: .5rem;">
+            <div class="form-field" style="grid-column: span 2;">
+              <label class="form-label">Técnico / Instructor</label>
+              <select class="form-input" id="tecnicoSelect" style="width: 100%;">
+                <option value="cualquiera">Cualquier Profesional Disponible</option>
+                <option value="carlos">Carlos Mendoza (PGA)</option>
+                <option value="ana">Ana Villanueva (PGA)</option>
+                <option value="marcos">Marcos Gil (Fitness)</option>
+                <option value="lucia">Dra. Lucía Ramos (Mental)</option>
+                <option value="javier">Javier Castro (TPI)</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-field"><label class="form-label">Tu nombre</label><input class="form-input" type="text" placeholder="Nombre completo"></div>
+            <div class="form-field"><label class="form-label">Email</label><input class="form-input" type="email" placeholder="tu@email.com"></div>
+          </div>
+          <div class="cal-mini" id="cal-mini-clases">
+            <div class="cal-header">
+              <button class="cal-nav" onclick="changeMonth(-1, 'cal-mini-clases')">‹</button>
+              <span class="calTitle">Abril 2026</span>
+              <button class="cal-nav" onclick="changeMonth(1, 'cal-mini-clases')">›</button>
+            </div>
+            <div class="cal-grid calGrid"></div>
+          </div>
+          <div class="time-slots">
+            <div class="time-slot" onclick="selectTime(this)">09:00</div>
+            <div class="time-slot" onclick="selectTime(this)">10:00</div>
+            <div class="time-slot busy">11:00</div>
+            <div class="time-slot" onclick="selectTime(this)">12:00</div>
+            <div class="time-slot" onclick="selectTime(this)">16:00</div>
+            <div class="time-slot busy">17:00</div>
+            <div class="time-slot" onclick="selectTime(this)">18:00</div>
+            <div class="time-slot" onclick="selectTime(this)">19:00</div>
+          </div>
+          <button class="btn-confirm" onclick="confirmBooking()">Confirmar clase →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-bottom">
+      <p>© 2026 TeeTime. Todos los derechos reservados.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
